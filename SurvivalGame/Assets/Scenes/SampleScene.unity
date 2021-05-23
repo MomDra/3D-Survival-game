@@ -184,7 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentGun: {fileID: 1835270507}
-  originPos: {x: 0, y: 0, z: 0}
+  theCam: {fileID: 963194227}
+  hitEffectPrefab: {fileID: 1981289848965609433, guid: df8d0bb424705ee48b44fdf62db97bd5, type: 3}
 --- !u!82 &6983709
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10920,8 +10921,8 @@ MonoBehaviour:
   currentBulletCount: 10
   maxBulletCount: 0
   carryBulletCount: 23
-  retroActionForce: 0
-  retroActionFineSightForce: 0
+  retroActionForce: 0.3
+  retroActionFineSightForce: 0.7
   fineSightOriginPos: {x: 0.55, y: 0.335, z: -0.586}
   anim: {fileID: 1835270506}
   muzzleFlash: {fileID: 1059843811}
@@ -10975,6 +10976,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &2018000275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2295789953992593524, guid: 9843b294095d4d14b8240d3c0aaeb678, type: 3}
+  m_PrefabInstance: {fileID: 1541302297}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &2018000276
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018000275}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.08, z: 0}
 --- !u!1 &2133500078
 GameObject:
   m_ObjectHideFlags: 0
