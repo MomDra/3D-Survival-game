@@ -20,7 +20,7 @@ public class Gun : MonoBehaviour
     public float retroActionForce; // 반동 세기
     public float retroActionFineSightForce; // 정조준시의 반동 세기
 
-    public Vector3 fineSightOriginForce;
+    public Vector3 fineSightOriginPos;
     public Animator anim;
     public ParticleSystem muzzleFlash;
 

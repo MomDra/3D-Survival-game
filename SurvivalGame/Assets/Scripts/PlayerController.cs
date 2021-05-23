@@ -42,12 +42,14 @@ public class PlayerController : MonoBehaviour
     Camera theCamera;
     Rigidbody myRigid;
     CapsuleCollider capsuleCollider;
+    GunController theGunController;
 
     // Start is called before the first frame update
     void Start()
     {
         myRigid = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+        theGunController = FindObjectOfType<GunController>();
 
         // √ ±‚»≠
         applySpeed = walkSpeed;
@@ -153,6 +155,9 @@ public class PlayerController : MonoBehaviour
     {
         if (isCrouch)
             Crouch();
+
+        theGunController.CancelFineSight();
+
         isRun = true;
         applySpeed = runSpeed;
     }
