@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 6983706}
   - component: {fileID: 6983707}
   - component: {fileID: 6983708}
+  - component: {fileID: 6983710}
   - component: {fileID: 6983709}
   m_Layer: 6
   m_Name: Hodler
@@ -165,7 +166,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6983705}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fad88cdb2487c84bbb37bf7557f96c3, type: 3}
   m_Name: 
@@ -282,6 +283,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6983710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6983705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f801c174c3c78dd469c32fd429a5f9c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeaponType: GUN
+  changeWeaponDelayTime: 0.1
+  changeWeaponEndDelayTime: 0.1
+  guns:
+  - {fileID: 1835270507}
+  hands:
+  - {fileID: 1976325129}
+  theGunController: {fileID: 6983708}
+  theHandController: {fileID: 6983707}
 --- !u!1 &304646212
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,6 +488,10 @@ PrefabInstance:
     - target: {fileID: 3605080198217261890, guid: e4f891800754c7d46b64f877e09a4642, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3605080198217261890, guid: e4f891800754c7d46b64f877e09a4642, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3840122472981064823, guid: e4f891800754c7d46b64f877e09a4642, type: 3}
       propertyPath: m_Layer
@@ -10850,7 +10876,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1190985762
 Transform:
   m_ObjectHideFlags: 0
@@ -10976,7 +11002,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &1245965067
 CapsuleCollider:
@@ -11890,7 +11916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26b6cc1f8a448643a6bfa290a3decc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handName: "\uB9E8\uC190"
+  handName: RawHand
   range: 3
   damage: 1
   workSpeed: 0

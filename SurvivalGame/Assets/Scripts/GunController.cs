@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+    // 활성화 여부
+    public static bool isActivate = true;
+
     // 현재 장착된 총
     [SerializeField]
     Gun currentGun;
@@ -46,14 +49,20 @@ public class GunController : MonoBehaviour
         originPos = Vector3.zero;
         recoilBack = new Vector3(currentGun.retroActionForce, originPos.y, originPos.z);
         retroActionRecoilBack = new Vector3(currentGun.retroActionFineSightForce, currentGun.fineSightOriginPos.y, currentGun.fineSightOriginPos.z);
+
+        WeaponManager.currentWeapon = currentGun.transform;
+        WeaponManager.currentWeaponAnim = currentGun.anim;
     }
 
     private void Update()
     {
-        GunFireRateCalc();
-        TryFire();
-        TryReload();
-        TryFineSight();
+        if (isActivate)
+        {
+            GunFireRateCalc();
+            TryFire();
+            TryReload();
+            TryFineSight();
+        }
     }
 
     // 재계산 연사속도
@@ -105,11 +114,8 @@ public class GunController : MonoBehaviour
     void Hit()
     {
         float theCrosshairAccuracy = theCrosshair.GetAccuracy();
-        if (Physics.Raycast(theCam.transform.position, theCam.transform.forward + 
-            new Vector3(Random.Range(-theCrosshairAccuracy - currentGun.accuracy, theCrosshairAccuracy + currentGun.accuracy),
-                        Random.Range(-theCrosshairAccuracy - currentGun.accuracy, theCrosshairAccuracy + currentGun.accuracy),
-                        0)
-            , out hitInfo, currentGun.range))
+        float randomVal = Random.Range(-theCrosshairAccuracy - currentGun.accuracy, theCrosshairAccuracy + currentGun.accuracy);
+        if (Physics.Raycast(theCam.transform.position, theCam.transform.forward +  new Vector3(randomVal,randomVal, 0) , out hitInfo, currentGun.range))
         {
             GameObject clone = Instantiate(hitEffectPrefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
             Destroy(clone, 2f);
@@ -124,6 +130,15 @@ public class GunController : MonoBehaviour
         {
             CancelFineSight();
             StartCoroutine(ReloadCoroutine());
+        }
+    }
+
+    public void CancelReload()
+    {
+        if (isReload)
+        {
+            StopAllCoroutines();
+            isReload = false;
         }
     }
 
@@ -272,5 +287,19 @@ public class GunController : MonoBehaviour
     public bool GetFineSightMode()
     {
         return isFineSightMode;
+    }
+
+    public void GunChange(Gun _gun)
+    {
+        if (WeaponManager.currentWeapon != null)
+            WeaponManager.currentWeapon.gameObject.SetActive(false);
+
+        currentGun = _gun;
+        WeaponManager.currentWeapon = currentGun.transform;
+        WeaponManager.currentWeaponAnim = currentGun.anim;
+
+        currentGun.transform.localPosition = Vector3.zero;
+        currentGun.gameObject.SetActive(true);
+        isActivate = true;
     }
 }
