@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 6983707}
   - component: {fileID: 6983708}
   - component: {fileID: 6983710}
+  - component: {fileID: 6983711}
   - component: {fileID: 6983709}
   m_Layer: 6
   m_Name: Hodler
@@ -304,6 +305,22 @@ MonoBehaviour:
   - {fileID: 1976325129}
   theGunController: {fileID: 6983708}
   theHandController: {fileID: 6983707}
+--- !u!114 &6983711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6983705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd1e36b910d4a664ea5dadc0343d6812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limitPos: {x: 0.18, y: 0.1, z: 0.05}
+  fineSightLimitPos: {x: 0.005, y: 0.005, z: 0.03}
+  smoothSway: {x: 0, y: 0, z: 0}
+  theGunController: {fileID: 6983708}
 --- !u!1 &304646212
 GameObject:
   m_ObjectHideFlags: 0
