@@ -32,6 +32,7 @@ public class GunController : MonoBehaviour
     // 필요한 컴포넌트
     [SerializeField]
     Camera theCam;
+    Crosshair theCrosshair;
 
     // 피격 이펙트
     [SerializeField]
@@ -40,6 +41,7 @@ public class GunController : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        theCrosshair = FindObjectOfType<Crosshair>();
 
         originPos = Vector3.zero;
         recoilBack = new Vector3(currentGun.retroActionForce, originPos.y, originPos.z);
@@ -90,6 +92,7 @@ public class GunController : MonoBehaviour
     // 발사 후 계산
     void Shoot()
     {
+        theCrosshair.FireAnimation();
         currentGun.currentBulletCount--;
         currentFireRate = currentGun.fireRate; // 연사 속도 재계산
         PlaySE(currentGun.fire_Sound);
@@ -101,7 +104,12 @@ public class GunController : MonoBehaviour
 
     void Hit()
     {
-        if(Physics.Raycast(theCam.transform.position, theCam.transform.forward, out hitInfo, currentGun.range))
+        float theCrosshairAccuracy = theCrosshair.GetAccuracy();
+        if (Physics.Raycast(theCam.transform.position, theCam.transform.forward + 
+            new Vector3(Random.Range(-theCrosshairAccuracy - currentGun.accuracy, theCrosshairAccuracy + currentGun.accuracy),
+                        Random.Range(-theCrosshairAccuracy - currentGun.accuracy, theCrosshairAccuracy + currentGun.accuracy),
+                        0)
+            , out hitInfo, currentGun.range))
         {
             GameObject clone = Instantiate(hitEffectPrefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
             Destroy(clone, 2f);
@@ -174,6 +182,7 @@ public class GunController : MonoBehaviour
     {
         isFineSightMode = !isFineSightMode;
         currentGun.anim.SetBool("FineSightMode", isFineSightMode);
+        theCrosshair.FineSightAnimation(isFineSightMode);
 
         if (isFineSightMode)
         {
@@ -258,5 +267,10 @@ public class GunController : MonoBehaviour
     public Gun GetGun()
     {
         return currentGun;
+    }
+
+    public bool GetFineSightMode()
+    {
+        return isFineSightMode;
     }
 }
