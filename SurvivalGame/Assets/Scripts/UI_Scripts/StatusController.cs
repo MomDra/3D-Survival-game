@@ -233,6 +233,12 @@ public class StatusController : MonoBehaviour
             currentSp = 0;
     }
 
+    public void IncreaseSP(int _count)
+    {
+        sp += _count;
+        Debug.Log("최대 sp가 증가했습니다.");
+    }
+
     public int GetCurrentSP()
     {
         return currentSp;
