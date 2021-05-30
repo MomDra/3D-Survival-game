@@ -21,8 +21,20 @@ public class ItemEffectDatabase : MonoBehaviour
     StatusController thePlayerStatus;
     [SerializeField]
     WeaponManager theWeaponManager;
+    [SerializeField]
+    SlotToolTip theSlotToolTip;
 
     const string HP = "HP", SP = "SP", DP = "DP", HUNGRY = "HUNGRY", THIRSTY = "THIRSTY", SATISFY = "SATISFY";
+
+    public void ShowToolTip(Item _item, Vector3 _pos)
+    {
+        theSlotToolTip.ShowToolTip(_item, _pos);
+    }
+
+    public void HideToolTip()
+    {
+        theSlotToolTip.HideToolTip();
+    }
 
     public void UseItem(Item _item)
     {
