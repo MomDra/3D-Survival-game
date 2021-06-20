@@ -177,6 +177,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 1976325129}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 243
 --- !u!114 &6983708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +193,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentGun: {fileID: 1835270507}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 243
   theCam: {fileID: 963194227}
   hitEffectPrefab: {fileID: 1981289848965609433, guid: df8d0bb424705ee48b44fdf62db97bd5, type: 3}
 --- !u!82 &6983709
@@ -344,6 +350,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 717496041}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 243
 --- !u!114 &6983713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +366,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 489208861}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 243
 --- !u!1001 &88621220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15967,7 +15979,7 @@ GameObject:
   - component: {fileID: 1910000237}
   m_Layer: 0
   m_Name: pig
-  m_TagString: NPC
+  m_TagString: WeakAnimal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16032,18 +16044,19 @@ MonoBehaviour:
   hp: 2
   walkSpeed: 2
   runSpeed: 4
+  turnSpeed: 0.1
   walkTime: 5
   waitTime: 4
   runTime: 3
   anim: {fileID: 4228774085175290550}
   rigid: {fileID: 1910000234}
   boxCol: {fileID: 1910000233}
-  sound_pig_Normal:
+  sound_Normal:
   - {fileID: 8300000, guid: 51c3715cbae191e48a59f78aeef5390c, type: 3}
   - {fileID: 8300000, guid: b20c2b2d8a9ca864090387ec5dc86f66, type: 3}
   - {fileID: 8300000, guid: 7183b0f07919abf478a20beac3df224c, type: 3}
-  sound_pig_Hurt: {fileID: 8300000, guid: d5747ee530ae2314b8dfe8924d5bd7e7, type: 3}
-  sound_pig_Dead: {fileID: 8300000, guid: cc5af9cac18a73b40a1bb969806facb0, type: 3}
+  sound_Hurt: {fileID: 8300000, guid: d5747ee530ae2314b8dfe8924d5bd7e7, type: 3}
+  sound_Dead: {fileID: 8300000, guid: cc5af9cac18a73b40a1bb969806facb0, type: 3}
 --- !u!82 &1910000236
 AudioSource:
   m_ObjectHideFlags: 0

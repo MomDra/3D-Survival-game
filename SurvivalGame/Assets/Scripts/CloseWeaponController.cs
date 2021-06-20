@@ -13,6 +13,8 @@ public abstract class CloseWeaponController : MonoBehaviour
     protected bool isSwing;
 
     protected RaycastHit hitinfo;
+    [SerializeField]
+    protected LayerMask layerMask;
 
     protected void TryAttack()
     {
@@ -49,7 +51,7 @@ public abstract class CloseWeaponController : MonoBehaviour
     
     protected bool checkObject()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out hitinfo, currentWeapon.range))
+        if (Physics.Raycast(transform.position, transform.forward, out hitinfo, currentWeapon.range, layerMask))
         {
             return true;
         }

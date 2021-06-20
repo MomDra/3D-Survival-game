@@ -31,6 +31,8 @@ public class GunController : MonoBehaviour
 
     // 레이저 충돌 정보 받아옴
     RaycastHit hitInfo;
+    [SerializeField]
+    LayerMask layerMask;
 
     // 필요한 컴포넌트
     [SerializeField]
@@ -115,7 +117,7 @@ public class GunController : MonoBehaviour
     {
         float theCrosshairAccuracy = theCrosshair.GetAccuracy();
         float randomVal = Random.Range(-theCrosshairAccuracy - currentGun.accuracy, theCrosshairAccuracy + currentGun.accuracy);
-        if (Physics.Raycast(theCam.transform.position, theCam.transform.forward +  new Vector3(randomVal,randomVal, 0) , out hitInfo, currentGun.range))
+        if (Physics.Raycast(theCam.transform.position, theCam.transform.forward +  new Vector3(randomVal,randomVal, 0) , out hitInfo, currentGun.range, layerMask))
         {
             GameObject clone = Instantiate(hitEffectPrefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
             Destroy(clone, 2f);
