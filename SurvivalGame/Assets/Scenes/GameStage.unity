@@ -7,6 +7,7 @@ OcclusionCullingSettings:
   m_OcclusionBakeSettings:
     smallestOccluder: 5
     smallestHole: 0.25
+    backfaceThreshold: 100
   m_SceneGUID: 00000000000000000000000000000000
   m_OcclusionCullingData: {fileID: 0}
 --- !u!104 &2
@@ -1006,6 +1007,7 @@ GameObject:
   m_Component:
   - component: {fileID: 332731281}
   - component: {fileID: 332731282}
+  - component: {fileID: 332731283}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1037,6 +1039,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4182e3c811f901449fea7433ad6978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &332731283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332731280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20faea9669a127d4186c46f04dc9a421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &363503700
@@ -4034,6 +4048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go_BaseUI: {fileID: 1386084392}
+  theSaveNLoad: {fileID: 332731283}
 --- !u!1 &922684573
 GameObject:
   m_ObjectHideFlags: 0
@@ -16739,6 +16754,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   go_InventoryBase: {fileID: 1150783624}
   go_SlotsParent: {fileID: 1784930827}
+  items:
+  - {fileID: 11400000, guid: 9e0d1c4ce98869b40a07810c635cebb3, type: 2}
+  - {fileID: 11400000, guid: 293f4df506039ad41bc5666981ab673c, type: 2}
+  - {fileID: 11400000, guid: 745906e6f7050f648b13a6ab2a0220d3, type: 2}
 --- !u!1001 &1544374781
 PrefabInstance:
   m_ObjectHideFlags: 0

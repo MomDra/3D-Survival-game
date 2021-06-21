@@ -6,6 +6,8 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField]
     GameObject go_BaseUI;
+    [SerializeField]
+    SaveAndLoad theSaveNLoad;
 
     // Update is called once per frame
     void Update()
@@ -39,12 +41,14 @@ public class PauseMenu : MonoBehaviour
 
     public void ClickSave()
     {
-        Debug.Log("세이브");
+        Debug.Log("세이브 버튼 클릭");
+        theSaveNLoad.SaveData();
     }
 
     public void ClickLoad()
     {
-        Debug.Log("로드");
+        Debug.Log("로드 버튼 클릭");
+        theSaveNLoad.LoadData();
     }
 
     public void ClickExit()

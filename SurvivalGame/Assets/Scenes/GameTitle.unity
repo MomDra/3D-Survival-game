@@ -227,6 +227,8 @@ GameObject:
   - component: {fileID: 202104624}
   - component: {fileID: 202104626}
   - component: {fileID: 202104625}
+  - component: {fileID: 202104628}
+  - component: {fileID: 202104627}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -295,6 +297,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202104623}
   m_CullTransparentMesh: 1
+--- !u!114 &202104627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202104623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469a347fe41655c458da3caa1d017308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: GameStage
+--- !u!114 &202104628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202104623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20faea9669a127d4186c46f04dc9a421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &545501383
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +627,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 846167012}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 202104627}
+        m_TargetAssemblyTypeName: Title, Assembly-CSharp
+        m_MethodName: ClickLoad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1035641074
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +888,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1667022824}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 202104627}
+        m_TargetAssemblyTypeName: Title, Assembly-CSharp
+        m_MethodName: ClickStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1667022824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1054,4 +1105,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1830138637}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 202104627}
+        m_TargetAssemblyTypeName: Title, Assembly-CSharp
+        m_MethodName: ClickExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

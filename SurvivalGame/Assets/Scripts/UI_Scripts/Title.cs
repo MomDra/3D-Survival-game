@@ -7,6 +7,21 @@ public class Title : MonoBehaviour
 {
     public string sceneName = "GameStage";
 
+    public static Title instance;
+
+    SaveAndLoad theSaveNLoad;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(this.gameObject);
+    }
+
     public void ClickStart()
     {
         Debug.Log("로딩");
@@ -16,6 +31,21 @@ public class Title : MonoBehaviour
     public void ClickLoad()
     {
         Debug.Log("로드");
+        StartCoroutine(LoadCoroutine());
+    }
+
+    IEnumerator LoadCoroutine()
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
+
+        theSaveNLoad = FindObjectOfType<SaveAndLoad>();
+        theSaveNLoad.LoadData();
+        Destroy(gameObject);
     }
 
     public void ClickExit()
