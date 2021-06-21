@@ -30,6 +30,7 @@ public class Inventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             inventoryActivated = !inventoryActivated;
+            GameManager.isOpenInventory = inventoryActivated;
             go_InventoryBase.SetActive(inventoryActivated);
         }
     }
