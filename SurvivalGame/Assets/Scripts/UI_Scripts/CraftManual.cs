@@ -27,6 +27,7 @@ public class CraftManual : MonoBehaviour
 
     [SerializeField]
     Transform tf_Player; // 플레이어 위치
+    PreviewObject previewComponent;
 
     // Raycast 필요 변수 선언
     RaycastHit hitinfo;
@@ -40,6 +41,7 @@ public class CraftManual : MonoBehaviour
         go_Preview = Instantiate(craft_fire[_slotNumber].go_PreviewPrefab, tf_Player.position + tf_Player.transform.forward, Quaternion.identity);
         go_Prefab = craft_fire[_slotNumber].go_Prefab; 
         isPreviewActivated = true;
+        previewComponent = go_Preview.GetComponent<PreviewObject>();
         CloseWindow();
     }
 
@@ -54,7 +56,7 @@ public class CraftManual : MonoBehaviour
         {
             PreviewPositionUpdate();
 
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && previewComponent.isBuildable())
             {
                 Build();
             }
@@ -92,7 +94,8 @@ public class CraftManual : MonoBehaviour
         {
             Destroy(go_Preview);
         }
-        
+
+        CloseWindow();
         isPreviewActivated = false;
         go_Preview = null;
         go_Prefab = null;
